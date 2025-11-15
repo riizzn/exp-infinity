@@ -31,13 +31,23 @@ const TextImage = () => {
       gsap.set(splitRef.current[i].chars, { y: "100%" });
     });
   }, []);
+
+  const resetImages = () => {
+    gsap.killTweensOf(imageRef.current);
+    gsap.to(imageRef.current, {
+      width: 100,
+      height: 100,
+      duration: 0.5,
+      ease: "power4.out",
+    });
+  };
   const onEnter = (id) => {
     const split = splitRef.current[id];
-
-    const image=imageRef.current[id]
+    resetImages();
+    const image = imageRef.current[id];
     gsap.killTweensOf(split.chars);
     gsap.killTweensOf(defaultSplit.current.chars);
-    gsap.killTweensOf(imageRef.current)
+
     gsap.to(split.chars, {
       y: "0%",
       duration: 0.5,
@@ -51,18 +61,18 @@ const TextImage = () => {
       ease: "power4.out",
     });
     gsap.to(image, {
-      width:200,
-      height:200,
-      duration:0.5,
-       ease: "power4.out",
-    })
+      width: 200,
+      height: 200,
+      duration: 0.5,
+      ease: "power4.out",
+    });
   };
   const onLeave = (id) => {
-     const image=imageRef.current[id]
+    const image = imageRef.current[id];
     const split = splitRef.current[id];
     gsap.killTweensOf(split.chars);
     gsap.killTweensOf(defaultSplit.current.chars);
-     gsap.killTweensOf(imageRef.current)
+    gsap.killTweensOf(imageRef.current);
     gsap.to(split.chars, {
       y: "100%",
       duration: 0.75,
@@ -75,12 +85,12 @@ const TextImage = () => {
       stagger: { each: 0.025, from: "center" },
       ease: "power4.out",
     });
-     gsap.to(image, {
-      width:100,
-      height:100,
-      duration:0.5,
+    gsap.to(image, {
+      width: 100,
+      height: 100,
+      duration: 0.5,
       ease: "power4.out",
-    })
+    });
   };
 
   return (
@@ -88,7 +98,7 @@ const TextImage = () => {
       <div className=" max-w-max flex items-center justify-center mx-auto">
         {galleryImages.map((img, i) => (
           <div
-          ref={(el) => (imageRef.current[i] = el)}
+            ref={(el) => (imageRef.current[i] = el)}
             onMouseEnter={() => onEnter(i)}
             onMouseLeave={() => onLeave(i)}
             key={`image-${i}`}
