@@ -92,7 +92,7 @@ useGSAP(() => {
         </div>
       </section>
       <section className="h-screen text-center content-center bg-yellow-200 text-black">
-        <h1>Period</h1>
+        <h1>Men</h1>
       </section>
     </>
   );
