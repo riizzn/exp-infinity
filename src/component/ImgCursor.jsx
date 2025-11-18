@@ -3,15 +3,7 @@ import gsap from "gsap";
 import React, { useRef } from "react";
 gsap.registerPlugin(useGSAP);
 
-const images =[
-    "/images/f3.jpg",
-    "/images/f4.jpg",
-    "/images/f5.jpg",
-    "/images/f6.jpg",
-    "/images/f7.jpg",
-    "/images/f8.jpg",
-    "/images/f3.jpg",
-]
+
 
 const ImgCursor = () => {
   const containerRef = useRef(null);
