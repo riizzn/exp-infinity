@@ -4,14 +4,17 @@ import TextArt from "./component/TextArt";
 import ImgCursorTrail from "./component/ImgCursorTrail";
 import ImgContainer from "./component/ImgContainer";
 import Anim1 from "./revealAnimation/Anim1";
-
+import Explosion from "./component/Explosion";
+import ReactLenis from "lenis/react";
 
 const App = () => {
   return (
-    <div className="min-h-screen">
-      <Anim1/>
-   
-    </div>
+    <>
+      <ReactLenis root />
+      <div className="min-h-screen">
+        <Explosion />
+      </div>
+    </>
   );
 };
 
