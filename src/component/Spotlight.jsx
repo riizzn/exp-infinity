@@ -20,28 +20,28 @@ const Spotlight = () => {
     const outroSplit = SplitText.create(outro.current, { type: "words" });
     gsap.set(introSplit.words, { opacity: 1 });
     gsap.set(outroSplit.words, { opacity: 0 });
-    const scatterDirections = [
-      { x: 1.3, y: 0.7 },
-      { x: -1.5, y: 1.0 },
-      { x: 1.1, y: -1.3 },
-      { x: -1.7, y: -0.8 },
-      { x: 0.8, y: 1.5 },
-      { x: -1.0, y: -1.4 },
-      { x: 1.6, y: 0.3 },
-      { x: -0.7, y: 1.7 },
-      { x: 1.2, y: -1.6 },
-      { x: -1.4, y: 0.9 },
-      { x: 1.8, y: -0.5 },
-      { x: -1.1, y: -1.8 },
-      { x: 0.9, y: 1.8 },
-      { x: -1.9, y: 0.4 },
-      { x: 1.0, y: -1.9 },
-      { x: -0.8, y: 1.9 },
-      { x: 1.7, y: -1.0 },
-      { x: -1.3, y: -1.2 },
-      { x: 0.7, y: 2.0 },
-      { x: 1.25, y: -0.2 },
-    ];
+   const scatterDirections = [
+  { x: 1.2, y: 0.6 },
+  { x: -1.4, y: 1.1 },
+  { x: 0.9, y: -1.3 },
+  { x: -1.6, y: -0.7 },
+  { x: 0.5, y: 1.4 },
+  { x: -0.8, y: -1.2 },
+  { x: 1.5, y: 0.2 },
+  { x: -0.6, y: 1.6 },
+  { x: 1.1, y: -1.5 },
+  { x: -1.3, y: 0.8 },
+  { x: 1.7, y: -0.4 },
+  { x: -0.9, y: -1.7 },
+  { x: 0.7, y: 1.8 },
+  { x: -1.8, y: 0.3 },
+  { x: 0.8, y: -1.8 },
+  { x: -0.5, y: 1.9 },
+  { x: 1.6, y: -0.9 },
+  { x: -1.2, y: -1.1 },
+  { x: 0.4, y: 1.9 },
+  { x: 1.3, y: -0.5 },
+];
     const screenWidth = window.innerWidth;
     const screenHeight = window.innerHeight;
     const isMobile = screenWidth < 1000;
@@ -107,6 +107,52 @@ const Spotlight = () => {
           x: 0,
           y: 0,
         });
+        if (introSplit && introSplit.words.length > 0) {
+          if (progress >= 0.6 && progress <= 0.75) {
+            const introFade = (progress - 0.6) / 0.15;
+            const totalWords = introSplit.words.length;
+            introSplit.words.forEach((word, index) => {
+              const wordFadeProgress = index / totalWords;
+              const fadeRange = 0.1;
+              if (introFade >= wordFadeProgress + fadeRange) {
+                gsap.set(word, { opacity: 0 });
+              } else if (introFade <= wordFadeProgress) {
+                gsap.set(word, { opacity: 1 });
+              } else {
+                const wordOpacity =
+                  1 - (introFade - wordFadeProgress) / fadeRange;
+                gsap.set(word, { opacity: wordOpacity });
+              }
+            });
+          } else if (progress < 0.6) {
+            gsap.set(introSplit.words, { opacity: 1 });
+          }else if(progress>0.75){
+            gsap.set(introSplit.words,{opacity:0})
+          }
+        }
+         if (outroSplit && outroSplit.words.length > 0) {
+          if (progress >= 0.8 && progress <= 0.95) {
+            const outroFade = (progress - 0.8) / 0.15;
+            const totalWords = outroSplit.words.length;
+            outroSplit.words.forEach((word, index) => {
+              const wordFadeProgress = index / totalWords;
+              const fadeRange = 0.1;
+              if (outroFade >= wordFadeProgress + fadeRange) {
+                gsap.set(word, { opacity: 1 });
+              } else if (outroFade <= wordFadeProgress) {
+                gsap.set(word, { opacity: 0 });
+              } else {
+                const wordOpacity =
+                  (outroFade - wordFadeProgress) / fadeRange;
+                gsap.set(word, { opacity: wordOpacity });
+              }
+            });
+          } else if (progress < 0.8) {
+            gsap.set(outroSplit.words, { opacity: 0 });
+          }else if(progress>0.95){
+            gsap.set(outroSplit.words,{opacity:1})
+          }
+        }
       },
     });
   }, []);
