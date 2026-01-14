@@ -7,13 +7,14 @@ import Anim1 from "./revealAnimation/Anim1";
 import Explosion from "./component/Explosion";
 import ReactLenis from "lenis/react";
 import Anim2 from "./revealAnimation/Anim2";
+import Flip from "./component/Flip";
 
 const App = () => {
   return (
     <>
       <ReactLenis root />
       <div className="min-h-screen">
-      <Anim2/>
+     <Flip/>
       </div>
     </>
   );
