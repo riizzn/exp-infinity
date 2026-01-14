@@ -8,13 +8,15 @@ import Explosion from "./component/Explosion";
 import ReactLenis from "lenis/react";
 import Anim2 from "./revealAnimation/Anim2";
 import Flip from "./component/Flip";
+import Physics from "./component/Physics";
 
 const App = () => {
   return (
     <>
       <ReactLenis root />
       <div className="min-h-screen">
-     <Flip/>
+        <Physics/>
+    
       </div>
     </>
   );

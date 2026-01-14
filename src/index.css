@@ -185,7 +185,14 @@ img {
   .hero-sec-img {
     @apply absolute top-0 left-0 w-full h-full will-change-transform;
   }
+  .object{
+    @apply absolute  text-2xl max-lg:text-lg w-max  bg-black text-white  rounded-[10rem] p-5 cursor-grab  pointer-events-auto z-2 select-none;
+  }
+  .object:active {
+  @apply cursor-grabbing;
+}
 }
 body {
   background-color: black;
 }
+
