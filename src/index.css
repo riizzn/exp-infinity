@@ -15,6 +15,13 @@
   --font-plex: "IBM Plex Mono", monospace;
   --font-stack: "Stack Sans Notch", sans-serif;
 }
+/* 3. Base Layer (Global Resets) */
+@layer base {
+  body {
+    @apply bg-white text-gray-900 antialiased;
+  }
+}
+
 /* body {
   background: black;
   color: white;
@@ -133,7 +140,6 @@ img {
 @media (max-width: 967px) {
   [data-layout="3"] [data-flip-id="image-card"] {
     grid-area: 3/3/3/5;
-    
   }
 }
 
@@ -142,7 +148,7 @@ img {
   align-self: end;
 }
 
-@layer components {
+/* @layer components {
   .title {
     @apply h-[85svh]  flex items-center;
   }
@@ -185,14 +191,172 @@ img {
   .hero-sec-img {
     @apply absolute top-0 left-0 w-full h-full will-change-transform;
   }
-  .object{
+  .object {
     @apply absolute  text-2xl max-lg:text-lg w-max  bg-black text-white  rounded-[10rem] p-5 cursor-grab  pointer-events-auto z-2 select-none;
   }
   .object:active {
-  @apply cursor-grabbing;
-}
+    @apply cursor-grabbing;
+  }
+  .card {
+    @apply h-[5em] p-20 bg-blue-400 flex items-center justify-center;
+  }
+} */
+
+@layer component {
+  /* .card {
+    @apply relative  flex items-center justify-center rounded-2xl w-[300px] h-[400px] bg-gray-700 overflow-hidden;
+  } */
 }
 body {
   background-color: black;
 }
 
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes spinn {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: -100%;
+  }
+}
+
+@utility spinc {
+  animation: spinn 10s infinite linear;
+}
+
+@keyframes gradient-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@utility animate-gradient {
+  background-size: 300% 300%;
+  animation: gradient-move 6s ease infinite;
+}
+
+/* .box::after,
+.box::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  z-index: -1;
+  background: conic-gradient(
+    from var(--angle),
+    #d84972,
+    #eee17e,
+    #7ed796,
+    #b46bc8,
+    #d84972
+  );
+}
+
+.box::before {
+  filter: blur(20px);
+  opacity: 0.7;
+  z-index: -2;
+}
+.box:hover::after {
+  animation: glow-border 3.5s linear infinite;
+}
+
+.box:hover::before {
+  animation:
+    blur-anim 3.5s linear infinite,
+    glow-border 3.5s linear infinite;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes glow-border {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+@keyframes blur-anim {
+  from {
+    filter: blur(20px);
+  }
+  to {
+    filter: blur(19px);
+  }
+} */
+
+/* .card::before , .card::after {
+  content: "";
+  position: absolute;
+}
+.card::before {
+  width: 200%;
+  height: 200%;
+  background-image: conic-gradient(
+    #d84972 0deg,
+    transparent 60deg,
+    transparent 180deg,
+    #cf6d89 180deg,
+    transparent 240deg
+  );
+  inset: -50%;
+  z-index: 2;
+  animation: border-animation 4s linear infinite;
+}
+.card:hover::before {
+  animation-play-state: paused;
+}
+.card::after {
+  --inset: 4px;
+  background: black;
+  inset: var(--inset);
+  border-radius: 12px;
+  transition: all 0.3s linear;
+  z-index:2 ;
+}
+@keyframes border-animation {
+  to {
+    transform: rotate(-360deg);
+  }
+} */
+.tag::after,
+.tag::before {
+  width: 1.25rem;
+  height: 1.25rem;
+  content: "";
+  position: absolute;
+}
+
+.tag::after {
+  background: transparent;
+  top: -1.125rem;
+  right: 0;
+  border-bottom-right-radius:0.8rem;
+  box-shadow: 0.375rem 0.375rem black;
+
+}
+.tag::before{
+  background: transparent;
+  top: -28px;
+  right: 0.49rem;
+   border-bottom-right-radius:0.8rem;
+  box-shadow: 0.375rem 0.375rem white;
+
+}

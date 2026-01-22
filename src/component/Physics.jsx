@@ -1,4 +1,4 @@
-"use client";
+
 
 import React, { useEffect, useRef } from "react";
 import Matter from "matter-js";
@@ -135,7 +135,7 @@ const Physics = () => {
     Matter.Runner.run(runner, engine);
 
     /* ---------------- DOM SYNC ---------------- */
-    let rafId;
+    let rafId;  
 
     const update = () => {
       bodiesRef.current.forEach(({ body, element, width, height }) => {
