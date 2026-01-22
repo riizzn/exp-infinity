@@ -16,13 +16,14 @@ import Infinte from "./component/Infinte";
 import { GlowBorder } from "./component/GlowBorder";
 import GlowCard from "./component/GlowCard";
 import InvertedBorder from "./component/InvertedBorder";
+import ClipPath from "./component/ClipPath";
 
 const App = () => {
   return (
     <>
       <ReactLenis root />
       <div className="  min-h-screen flex items-center justify-center">
-        <InvertedBorder/>
+        <ClipPath/>
       </div>
     </>
   );

@@ -348,15 +348,31 @@ body {
   background: transparent;
   top: -1.125rem;
   right: 0;
-  border-bottom-right-radius:0.8rem;
+  border-bottom-right-radius: 0.8rem;
   box-shadow: 0.375rem 0.375rem black;
-
 }
-.tag::before{
+.tag::before {
   background: transparent;
   top: -28px;
   right: 0.49rem;
-   border-bottom-right-radius:0.8rem;
+  border-bottom-right-radius: 0.8rem;
   box-shadow: 0.375rem 0.375rem white;
-
 }
+.circle {
+  clip-path: circle(50% at 100px 0px);
+}
+
+.ellipse {
+  clip-path: ellipse(40px 80px at center);
+}
+.inset {
+  clip-path: inset(20px 40px 50px 1px round 50px);
+}
+
+.polygon {
+  clip-path: polygon(0 0, 100% 0, 100% 20%, 0 100%);
+}
+.path {
+  clip-path: path("M 10,40 L 70, 40 L 80,10 L 70 , 190 Z");
+}
+
