@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useRef } from "react";
 import Matter from "matter-js";
 
@@ -18,6 +16,7 @@ const objectNames = [
 
 const Physics = () => {
   const containerRef = useRef(null);
+  const ref = useRef();
   const objectRef = useRef([]);
   const engineRef = useRef(null);
   const runnerRef = useRef(null);
@@ -58,7 +57,7 @@ const Physics = () => {
         containerRect.height + t / 2,
         containerRect.width + t * 2,
         t,
-        { isStatic: true }
+        { isStatic: true },
       ),
       // left
       Matter.Bodies.rectangle(
@@ -66,7 +65,7 @@ const Physics = () => {
         containerRect.height / 2,
         t,
         containerRect.height + t * 2,
-        { isStatic: true }
+        { isStatic: true },
       ),
       // right
       Matter.Bodies.rectangle(
@@ -74,7 +73,7 @@ const Physics = () => {
         containerRect.height / 2,
         t,
         containerRect.height + t * 2,
-        { isStatic: true }
+        { isStatic: true },
       ),
     ];
 
@@ -96,7 +95,7 @@ const Physics = () => {
           friction: config.friction,
           frictionAir: config.frictionAir,
           density: config.density,
-        }
+        },
       );
 
       bodiesRef.current.push({
@@ -109,7 +108,7 @@ const Physics = () => {
 
     Matter.World.add(
       engine.world,
-      bodiesRef.current.map((b) => b.body)
+      bodiesRef.current.map((b) => b.body),
     );
 
     /* ---------------- MOUSE ---------------- */
@@ -135,7 +134,7 @@ const Physics = () => {
     Matter.Runner.run(runner, engine);
 
     /* ---------------- DOM SYNC ---------------- */
-    let rafId;  
+    let rafId;
 
     const update = () => {
       bodiesRef.current.forEach(({ body, element, width, height }) => {

@@ -17,13 +17,18 @@ import { GlowBorder } from "./component/GlowBorder";
 import GlowCard from "./component/GlowCard";
 import InvertedBorder from "./component/InvertedBorder";
 import ClipPath from "./component/ClipPath";
+import Clipcard from "./component/Clipcard";
+import Features from "./component/Features";
+import GradientBackground from "./component/GradientBackground";
 
 const App = () => {
   return (
     <>
       <ReactLenis root />
-      <div className="  min-h-screen flex items-center justify-center">
-        <ClipPath/>
+
+      <div className=" relative  min-h-screen  ">
+       <GradientBackground/>
+       hi
       </div>
     </>
   );

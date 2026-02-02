@@ -16,11 +16,7 @@
   --font-stack: "Stack Sans Notch", sans-serif;
 }
 /* 3. Base Layer (Global Resets) */
-@layer base {
-  body {
-    @apply bg-white text-gray-900 antialiased;
-  }
-}
+
 
 /* body {
   background: black;
@@ -208,15 +204,9 @@ img {
   } */
 }
 body {
-  background-color: black;
+  background-color: rgb(180, 167, 167)
 }
 
-@layer utilities {
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-}
 
 @keyframes spinn {
   from {
@@ -336,7 +326,7 @@ body {
     transform: rotate(-360deg);
   }
 } */
-.tag::after,
+/* .tag::after,
 .tag::before {
   width: 1.25rem;
   height: 1.25rem;
@@ -375,4 +365,28 @@ body {
 .path {
   clip-path: path("M 10,40 L 70, 40 L 80,10 L 70 , 190 Z");
 }
+ */
 
+.card {
+  clip-path: polygon(
+    45% 9%,
+    59% 0,
+    100% 0,
+    100% 100%,
+    68% 100%,
+    0 100%,
+    0 75%,
+    0% 43%,
+    0 9%
+  );
+  overflow: hidden;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-dash {
+  animation: dash 2s ease-out forwards;
+}
